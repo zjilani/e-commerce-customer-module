@@ -50,14 +50,6 @@ const customerSchema = new mongoose.Schema({
         type:Number,
         default: 0
     },
-    googleId:{
-        type:String,
-        default:""
-    },
-    facebookId:{
-        type:String,
-        default:""
-    },
     markForDelete:{
         type:Boolean,
         default:false

@@ -13,7 +13,6 @@ assert.deepEqual(
 )
 
 if (validation.isError()) {
-    console.log(validation.Error)
     console.log("Config Schema validation failed. Please check the config file")
     process.exit(-1)
 }

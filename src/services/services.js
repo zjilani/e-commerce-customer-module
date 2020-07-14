@@ -1,7 +1,6 @@
 const Customer = require("../models/Customer")
 const Collection = require("../models/Collection")
 
-
 const createCustomer = async (fastify,createCustomerRequest) =>{
     
     let collection = await Collection.findOne({})
@@ -23,6 +22,21 @@ const createCustomer = async (fastify,createCustomerRequest) =>{
     return customer.save()
 }
 
+const getCustomer  = async (fastify,getCustomerRequest) =>{
+    
+    const customer = await Customer.findOne({customerId:getCustomerRequest.customerId})
+    console.log(customer)
+    if(!customer){
+        return {
+            response:"Not Found"
+        }
+    }
+
+    return customer
+}
+
+
 module.exports ={
-    createCustomer
+    createCustomer,
+    getCustomer
 }

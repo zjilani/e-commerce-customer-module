@@ -11,6 +11,13 @@ const routes = [
         handler: controllers.createCustomer,
         schema: documentation.createCustomer,
         preValidation: validators.validateCreateCustomerRequest
+    },
+    {
+        method: "GET",
+        url: "/getCustomer",
+        handler: controllers.getCustomer,
+        schema: documentation.getCustomer,
+        preValidation: validators.validateGetCustomerRequest
     }
     
 ]

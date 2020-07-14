@@ -19,3 +19,12 @@ exports.validateCreateCustomerRequest = function (req, res, done) {
     }
 }
 
+exports.validateGetCustomerRequest = function (req, res, done) {
+    if (!req.query.customerId) {
+        res.code(400)
+        done(new HttpError('faliure', 20001, 'customerId is missing'))
+    }
+    else {
+        done()
+    }
+}

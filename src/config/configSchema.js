@@ -16,29 +16,45 @@ const configSchema = {
                 "logLevel"
             ]
         },
-        "awsS3": {
+        "emailProviders": {
+            "type": "object",
+            "properties": {
+                "email": {
                     "type": "object",
                     "properties": {
-                        "BucketName": {
+                        "server": {
                             "type": "string"
                         },
-                        "accessKey": {
+                        "port": {
+                            "type": "integer"
+                        },
+                        "senderName": {
                             "type": "string"
                         },
-                        "secretKey": {
+                        "senderEmail": {
                             "type": "string"
                         },
-                        "apiVersion": {
+                        "username": {
+                            "type": "string"
+                        },
+                        "apiKey": {
                             "type": "string"
                         }
                     },
                     "required": [
-                        "BucketName",
-                        "accessKey",
-                        "secretKey",
-                        "apiVersion"
+                        "server",
+                        "port",
+                        "senderName",
+                        "senderEmail",
+                        "username",
+                        "apiKey"
                     ]
                 },
+            },
+            "required": [
+                "email"
+            ]
+        },
         "maxPaginationSize": {
             "type": "string"
         },
@@ -79,7 +95,7 @@ const configSchema = {
     },
     "required": [
         "server",
-        "aws",
+        "email",
         "maxPaginationSize",
         "environment",
         "mongodb"
