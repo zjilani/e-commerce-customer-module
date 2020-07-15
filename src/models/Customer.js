@@ -48,7 +48,7 @@ const customerSchema = new mongoose.Schema({
     },
     otp:{
         type:Number,
-        default: 0
+        default: ""
     },
     markForDelete:{
         type:Boolean,
@@ -62,15 +62,24 @@ const customerSchema = new mongoose.Schema({
     }]
 })
 
-// customerSchema.methods.generateAuthToken = async function() {
-//     const customer = this;
-//     console.log(customerId)
-//     const token = jwt.sign({customerId}, "myecommerceproject");
+customerSchema.methods.generateAuthToken = async function() {
+    const customer = this;
+    console.log(customer.customerId)
+    const token = jwt.sign({customerId:customer.customerId}, "myecommerceproject");
   
-//     customer.tokens = customer.tokens.concat({ token });
-//     await customer.save();
+    customer.tokens = customer.tokens.concat({ token });
+    console.log(customer.tokens)
+    await customer.save();
   
-//     return token;
-//   };
+    return token;
+};
+//   const tokens = async function() {
+//     // const customer = this;
+//     // console.log(customerId)
+//     const token = jwt.sign('Customer_2', "myecommerceproject");
+//     console.log(token)
+  
+//   }
+// tokens()
 
 module.exports = mongoose.model("Customer",customerSchema)

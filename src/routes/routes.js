@@ -18,6 +18,27 @@ const routes = [
         handler: controllers.getCustomer,
         schema: documentation.getCustomer,
         preValidation: validators.validateGetCustomerRequest
+    },
+    {
+        method: "POST",
+        url: "/updateCustomer",
+        handler: controllers.updateCustomer,
+        schema: documentation.updateCustomer,
+        preValidation: validators.validateUpdateCustomerRequest
+    },
+    {
+        method: "POST",
+        url: "/loginVerification",
+        handler: controllers.loginVerification,
+        schema: documentation.loginVerification,
+        preValidation: validators.validateLoginVerification
+    },
+    {
+        method: "POST",
+        url: "/customerFeedback",
+        handler: controllers.customerFeedback,
+        schema: documentation.customerFeedback,
+        preValidation: validators.validateCustomerFeedback
     }
     
 ]
