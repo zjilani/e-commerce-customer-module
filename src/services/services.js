@@ -51,7 +51,13 @@ const updateCustomer  = async (fastify,updateCustomerBody,updateCustomerQuery) =
         return {response:"Not Found"}
     }
     const updates = Object.keys(updateCustomerBody)
+    
+    
     updates.forEach((update)=> customer[update]=updateCustomerBody[update])
+    if(customer.otpVerified === true){
+        const token = await customer.generateAuthToken();
+        console.log(token)
+    }
 
     return customer.save()
 }

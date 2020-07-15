@@ -288,8 +288,15 @@ exports.createCustomer = {
                     },
                     "otp": {
                         "type":"string"
-                    }
-                    
+                    },
+                    // "tokens":{
+                    //     "type":"array",
+                    //     "properties": {
+                    //         "token":{
+                    //             "type":"string"
+                    //         }
+                    //     }
+                    // }
                 },
                 "required": [
                     

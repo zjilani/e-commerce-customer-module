@@ -47,7 +47,7 @@ const customerSchema = new mongoose.Schema({
         default:false
     },
     otp:{
-        type:Number,
+        type:String,
         default: ""
     },
     markForDelete:{
