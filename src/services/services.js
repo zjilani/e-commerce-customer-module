@@ -54,47 +54,39 @@ const updateCustomer  = async (fastify,updateCustomerBody,updateCustomerQuery) =
     
     
     updates.forEach((update)=> customer[update]=updateCustomerBody[update])
-    if(customer.otpVerified === true){
-        const token = await customer.generateAuthToken();
-        console.log(token)
-    }
 
     return customer.save()
 }
-const loginVerification = async (fastify,loginRequest) =>{
-    let customer = null
-    if(loginRequest.mobileNo){
-        customer = await Customer.findOne({mobileNo:loginRequest.mobileNo})
-    }
-    else if(loginRequest.email){
-        customer = await Customer.findOne({email:loginRequest.email})
-    }
-    console.log(customer)
-    if(!customer){
-        return {response:"Not Found"}
-    }
 
-    if(customer.password === loginRequest.password){
-        const token = await customer.generateAuthToken();
-        // console.log(token)
-        return customer
-    }
-    else{
-        return {response:"Not Found"}
-
-    }
-    
-}
 const customerFeedback  = async (fastify,customerFeedback) =>{
     const feedBack = new Feedback({...customerFeedback})
 
     return feedBack.save()
 }
 
+const customerDetail = async (fastify,customerDetailRequest) =>{
+    const customer =  await Customer.find(customerDetailRequest)
+
+    return customer
+}
+const updateToken = async (fastify,updateTokenRequest) =>{
+    const customer =  await Customer.findOne({customerId:updateTokenRequest.customerId})
+    const token = updateTokenRequest.token
+    customer.tokens = customer.tokens.concat({ token });
+    
+    console.log(customer.tokens)
+    await customer.save();
+
+    return customer
+}
+
+
+
 module.exports ={
     createCustomer,
     getCustomer,
     updateCustomer,
-    loginVerification,
-    customerFeedback
+    customerFeedback,
+    customerDetail,
+    updateToken
 }

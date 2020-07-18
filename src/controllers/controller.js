@@ -57,25 +57,7 @@ exports.updateCustomer = async (req, res) => {
         throw new HttpError('failiure', 2001, "Get Customer Failed", e.message)
     }
 }
-exports.loginVerification= async (req, res) => {
-    try {
-        console.log(req.body)
-        let response = await services.loginVerification(req.fastify, req.body)
-        if(response.response  === "Not Found"){
-            res.code(400)
-            throw new HttpError('failiure', 22005, "Check Credentials")
-        }
 
-        return res.status(201).send({
-            status: 'success',
-            data: response
-        })
-    } catch (e) {
-        res.code(500)
-        console.log(e)
-        throw new HttpError('failiure', 2001, "Login Verification Failed", e.message)
-    }
-}
 exports.customerFeedback= async (req, res) => {
     try {
         console.log(req.body)
@@ -93,5 +75,35 @@ exports.customerFeedback= async (req, res) => {
         res.code(500)
         console.log(e)
         throw new HttpError('failiure', 2001, "Customer Feedback Failed", e.message)
+    }
+}
+exports.customerDetail= async (req, res) => {
+    try {
+        let response = await services.customerDetail(req.fastify,req.body)
+
+        return res.status(200).send({
+            status: 'success',
+            data: response
+        })
+    } catch (e) {
+        res.code(500)
+        console.log(e)
+        throw new HttpError('failiure', 2001, "Customer Details Failed", e.message)
+    }
+}
+exports.updateToken =  async (req, res) => {
+    try {
+        let response = await services.updateToken(req.fastify,req.body)
+
+        return res.status(201).send({
+            status: 'success',
+            data: response,
+            message : "Token Updated..."
+
+        })
+    } catch (e) {
+        res.code(500)
+        console.log(e)
+        throw new HttpError('failiure', 2001, "Update Token Failed", e.message)
     }
 }

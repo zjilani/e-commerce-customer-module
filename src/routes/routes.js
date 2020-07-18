@@ -28,17 +28,22 @@ const routes = [
     },
     {
         method: "POST",
-        url: "/loginVerification",
-        handler: controllers.loginVerification,
-        schema: documentation.loginVerification,
-        preValidation: validators.validateLoginVerification
-    },
-    {
-        method: "POST",
         url: "/customerFeedback",
         handler: controllers.customerFeedback,
         schema: documentation.customerFeedback,
         preValidation: validators.validateCustomerFeedback
+    },
+    {
+        method: "POST",
+        url: "/customerDetail",
+        handler: controllers.customerDetail,
+        schema: documentation.customerDetail
+    },
+    {
+        method: "POST",
+        url: "/updateToken",
+        handler: controllers.updateToken,
+        schema: documentation.updateToken
     }
     
 ]
