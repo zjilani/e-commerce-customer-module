@@ -54,7 +54,7 @@ exports.updateCustomer = async (req, res) => {
         })
     } catch (e) {
         res.code(500)
-        throw new HttpError('failiure', 2001, "Get Customer Failed", e.message)
+        throw new HttpError('failiure', 2001, "Update Customer Failed", e.message)
     }
 }
 
