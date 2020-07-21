@@ -557,7 +557,7 @@ exports.createCustomer = {
                     ]
                 },
                 response: {
-                    201: {
+                    200: {
                         description: 'Successful response',
                         "type": "object",
                         "properties": {
@@ -588,6 +588,20 @@ exports.createCustomer = {
                                     },
                                     "markForDelete":{
                                         "type":"boolean",
+                                    },
+                                    "otp":{
+                                        "type":"string"
+                                    },
+                                    "otpVerified":{
+                                        "type":"boolean"
+                                    },
+                                    "tokens":{
+                                        "type":"array",
+                                        "items":{
+                                            "token":{
+                                                "type":"string"
+                                            }
+                                        }
                                     }
                                 },
                                 "required": [
