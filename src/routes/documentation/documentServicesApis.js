@@ -598,8 +598,11 @@ exports.createCustomer = {
                                     "tokens":{
                                         "type":"array",
                                         "items":{
-                                            "token":{
-                                                "type":"string"
+                                            "type":"object",
+                                            "properties":{
+                                                "token":{
+                                                    "type":"string"
+                                                }
                                             }
                                         }
                                     }
