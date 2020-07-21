@@ -557,7 +557,7 @@ exports.createCustomer = {
                     ]
                 },
                 response: {
-                    200: {
+                    201: {
                         description: 'Successful response',
                         "type": "object",
                         "properties": {
