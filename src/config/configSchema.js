@@ -16,45 +16,6 @@ const configSchema = {
                 "logLevel"
             ]
         },
-        "emailProviders": {
-            "type": "object",
-            "properties": {
-                "email": {
-                    "type": "object",
-                    "properties": {
-                        "server": {
-                            "type": "string"
-                        },
-                        "port": {
-                            "type": "integer"
-                        },
-                        "senderName": {
-                            "type": "string"
-                        },
-                        "senderEmail": {
-                            "type": "string"
-                        },
-                        "username": {
-                            "type": "string"
-                        },
-                        "apiKey": {
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "server",
-                        "port",
-                        "senderName",
-                        "senderEmail",
-                        "username",
-                        "apiKey"
-                    ]
-                },
-            },
-            "required": [
-                "email"
-            ]
-        },
         "maxPaginationSize": {
             "type": "string"
         },
@@ -95,7 +56,6 @@ const configSchema = {
     },
     "required": [
         "server",
-        "email",
         "maxPaginationSize",
         "environment",
         "mongodb"

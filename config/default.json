@@ -3,21 +3,10 @@
         "port" : 3000,
         "logLevel": "info"
     },
-    "emailProviders" : {
-        "email": {
-            "server": "gmail",
-            "port": 587,
-            "senderName" : "Jilani",
-            "senderEmail" : "zaidjilani.09@gmail.com",
-            "username" : "zaidjilani.09@gmail.com",
-            "apiKey" : "$apiKey"
-
-        }
-    },
     "maxPaginationSize":"20",
     "environment":"$ENVIRONMENT",
     "mongodb" : {
-        "baseURL" : "$baseURL",
+        "baseURL" : "$BASE_URL",
         "dbName" : "CUSTOMER",
         "debug" : "false",
         "username" : "$MONGODB_USER",
