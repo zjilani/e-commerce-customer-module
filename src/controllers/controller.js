@@ -81,7 +81,7 @@ exports.customerDetail= async (req, res) => {
     try {
         let response = await services.customerDetail(req.fastify,req.body)
 
-        return res.status(200).send({
+        return res.status(201).send({
             status: 'success',
             data: response
         })
