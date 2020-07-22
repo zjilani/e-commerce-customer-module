@@ -1,5 +1,6 @@
 const Customer = require("../models/Customer")
 const Feedback = require("../models/Feedback")
+const History = require("../models/History")
 const Collection = require("../models/Collection")
 
 const createCustomer = async (fastify,createCustomerRequest) =>{
@@ -79,7 +80,14 @@ const updateToken = async (fastify,updateTokenRequest) =>{
 
     return customer
 }
+const customerHistory = async (fastify,customerHistoryRequest) =>{
+        const history = new History({...customerHistoryRequest})
 
+         await history.save()
+        
+        return {response: "Done"}
+    
+}
 
 
 module.exports ={
@@ -88,5 +96,6 @@ module.exports ={
     updateCustomer,
     customerFeedback,
     customerDetail,
-    updateToken
+    updateToken,
+    customerHistory
 }

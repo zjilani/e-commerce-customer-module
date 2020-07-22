@@ -756,3 +756,131 @@ exports.createCustomer = {
                         }
                     }
                     }
+                    exports.customerHistory = {
+                        description: 'Adding Order History of a customer in Customer Service',
+                        tags: ["Customers"],
+                        summary: 'Adding Order History of a customer',
+                        body: {
+                            "type": "object",
+                            "properties": {
+                                "customerId": {
+                                    "type": "string"
+                                },
+                                "transactionDetails": {
+                                    "type": "array",
+                                    "items":{
+                                        "type":"object",
+                                        "properties":{
+                                            "customerId": {
+                                                "type": "string"
+                                            },
+                                            "productId": {
+                                                "type": "string"
+                                            },
+                                            "variantId":{
+                                                "type":"string",
+                                            },
+                                            "productName":{
+                                                "type":"string"
+                                            },
+                                            "color":{
+                                                "type": "string"
+                                            },
+                                            "size":{
+                                                "type":"string"
+                                            },
+                                            "price":{
+                                                "type":"number"
+                                            },
+                                            "quantityToBuy":{
+                                                "type":"number"
+                                            },
+                                            "quantity":{
+                                                "type":"number"
+                                            },
+                                            "mainCategory":{
+                                                "type":"string",
+                                            },
+                                            "subCategory":{
+                                                "type":"string",
+                                            }
+                                        }
+                                    }
+                                },
+                                "totalAmount":{
+                                    "type":"number"
+                                }
+                            },
+                            "required": [
+                                "customerId",
+                                "transactionDetails",
+                                "totalAmount"
+                            ]
+                        },
+                        response: {
+                            201: {
+                                description: 'Successful response',
+                                "type": "object",
+                                "properties": {
+                                    "status": {
+                                        "type": "string",
+                                        "enum": ['failure', 'success'],
+                                    },
+                                    "message": {
+                                        "type": "string"
+                                    },
+                                    
+                                },
+                                        "required": [
+                                                "status"
+                                                // "data"
+                                                ]
+                            }, 400: {
+                                "description": 'Error response',
+                                "type": "object",
+                                "properties": {
+                                    "status": {
+                                        "type": "string"
+                                    },
+                                    "code": {
+                                        "type": "integer"
+                                    },
+                                    "errorCause": {
+                                        "type": "string"
+                                    },
+                                    "message": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "status",
+                                    "message",
+                                    "code"
+                                ]
+                            },
+                            500: {
+                                "description": 'Error response',
+                                "type": "object",
+                                "properties": {
+                                    "status": {
+                                        "type": "string"
+                                    },
+                                    "code": {
+                                        "type": "integer"
+                                    },
+                                    "errorCause": {
+                                        "type": "string"
+                                    },
+                                    "message": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "status",
+                                    "message",
+                                    "code",
+                                    "errorCause"
+                                ]
+                            }
+                        }
+                        }

@@ -107,3 +107,20 @@ exports.updateToken =  async (req, res) => {
         throw new HttpError('failiure', 2001, "Update Token Failed", e.message)
     }
 }
+exports.customerHistory =  async (req, res) => {
+    try {
+        
+        let response = await services.customerHistory (req.fastify,req.body)
+
+        return res.status(201).send({
+            status: 'success',
+            // data: response,
+            message : "Customer History  Added..."
+
+        })
+    } catch (e) {
+        res.code(500)
+        console.log(e)
+        throw new HttpError('failiure', 2001, "Customer History  Failed", e.message)
+    }
+}

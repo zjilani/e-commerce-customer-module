@@ -11,8 +11,9 @@ exports.options = {
       url: 'https://swagger.io',
       description: 'Find more info here'
     },
-    host: 'jilani-e-commerce-customer.herokuapp.com',
-    schemes: ['https'],
+    // host: 'jilani-e-commerce-customer.herokuapp.com',
+    host: 'localhost:3000',
+    schemes: ['http'],
     consumes: ['application/json'],
     produces: ['application/json']
   }

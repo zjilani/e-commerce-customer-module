@@ -44,6 +44,12 @@ const routes = [
         url: "/updateToken",
         handler: controllers.updateToken,
         schema: documentation.updateToken
+    },
+    {
+        method: "POST",
+        url: "/customerHistory",
+        handler: controllers.customerHistory,
+        schema: documentation.customerHistory
     }
     
 ]
